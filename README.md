@@ -7,6 +7,7 @@ This test provides a template to work with air quality API data in Protopie and 
 * The demo uses data from openweathermap.org
 * Create an account to get a key
 * You'll need [ProtoPie Connect](https://www.protopie.io/download#connect-download) for this demo (only works with *pro or enterprise* license)
+* Get lattitude & longitude (for Toverberg: `lat=51.059357&lon=3.749582`)
 * In Protopie Connect, set-up the API plugin as follows (replace lat, lon & API key):
     * Method: `GET`
     * URL: `http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key})`
