@@ -11,3 +11,5 @@ This test provides a template to work with air quality API data in Protopie and 
     * Method: `GET`
     * URL: `http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key})`
 * In Protopie Studio, you can extract data from the JSOn response using `parseJson(JSON_response,"list.0.components.no2")` (see [demo file](/tests/CityTraQ%20demo.pie))
+
+![demo](/tests/demo1.gif)
