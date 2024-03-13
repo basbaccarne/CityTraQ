@@ -35,3 +35,25 @@ There is a [telraam](https://telraam.net/) sensor in the [Schoolstraat](https://
 * You can add more complex data interactions using components, parsing and Protopie send/receive function (see [example](tests/Telraam%20demo.pie))
 
   ![demo2](/tests/demo2.gif)
+
+### Kunak API
+VMM placed Kunak sensors at different locations in Ghent. VMM will build their own API in time, but the Kunak data can also be accessed directly.
+#### notes on the API
+- All the timestamps in this API use the UTC zone
+- Follow URL encoding (spaces are %20)
+- Request limit: Max 15.000 calls / month & max 10 calls / second
+- Auth: Authorization: Basic (aka: in the HTTP header: This is the Base64 codification of the string "user:password")
+- Base url: `https://kunakcloud.com/openAPIv0/v1/rest/`
+#### relevant API calls
+- userdata: `https://kunakcloud.com/openAPIv0/v1/rest/users/VMMBELGIUM/info`
+- sensor overview (incl. IDs): `https://kunakcloud.com/openAPIv0/v1/rest/devices/list/VMMBELGIUM`
+- what is measured by a sensor: `https://kunakcloud.com/openAPIv0/v1/rest/devices/0423440199/elementsDetails`
+- live measurement: `https://kunakcloud.com/openAPIv0/v1/rest/devices/0423440199/elements/NO2%20GC/info`
+- interval measurement: `https://kunakcloud.com/openAPIv0/v1/rest/devices/0423440199/elements/NO2%20GC/reads/fromTo?startTs=1700735563000&endTs=1700735885000`
+#### notes on the data
+Measurements ('elements'):
+- `NO2 GC`: NO2 meting (gaschromatochrafie) in ppb (parts per billion) in een sample van 300 seconden (5 min.)
+- `NO2 GCc`: NO2 meting (gaschromatochrafie?) in ppb (parts per billion) in een sample van 300 seconden (5 min.)
+- `NO2 GCc AVG1H`: NO2 meting in een sample van 3600 seconden (1 uur)
+- `NO2 GCc AVG24H`: NO2 meting in een sample van 3600 seconden > hoe wordt dit berekend?
+
